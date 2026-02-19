@@ -4,7 +4,14 @@ from openai import OpenAI
 
 app = FastAPI()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+import os
+from openai import OpenAI
+
+api_key = os.environ.get("OPENAI_API_KEY")
+
+print("API KEY LOADED:", api_key[:10] if api_key else "NONE")
+
+client = OpenAI(api_key=api_key)
 
 @app.get("/chat")
 def chat(message: str):
