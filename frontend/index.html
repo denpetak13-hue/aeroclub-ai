@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AeroClub AI Chat</title>
+</head>
+
+<body>
+
+<h2>AeroClub AI Chat</h2>
+
+<div id="chat"></div>
+
+<input id="poruka" type="text" placeholder="Unesi poruku">
+
+<button onclick="posalji()">Send</button>
+
+<script>
+
+function posalji(){
+
+let tekst = document.getElementById("poruka").value;
+
+document.getElementById("chat").innerHTML += "<p><b>Ti:</b> " + tekst + "</p>";
+
+let url = "http://127.0.0.1:8000/chat?message=" + encodeURIComponent(tekst);
+
+fetch(url)
+
+.then(response => response.json())
+
+.then(data => {
+
+document.getElementById("chat").innerHTML += "<p><b>AI:</b> " + data.odgovor + "</p>";
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
