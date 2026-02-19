@@ -11,7 +11,7 @@ client = OpenAI(api_key=api_key)
 
 @app.get("/")
 def home():
-    return {"status": "AeroClub AI radi"}
+    return {"status": "AeroClub AI ONLINE"}
 
 
 @app.get("/chat")
@@ -34,5 +34,5 @@ def chat(message: str):
         print("AI ERROR:", str(e))
 
         return {
-            "odgovor": f"AeroClub AI fallback: {message}"
+            "odgovor": f"AeroClub AI (fallback mode): Trenutno koristim test režim. Pitanje: {message}"
         }
