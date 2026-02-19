@@ -4,10 +4,14 @@ from openai import OpenAI
 
 app = FastAPI()
 
-# učitaj API ključ
 api_key = os.environ.get("OPENAI_API_KEY")
 
 client = OpenAI(api_key=api_key)
+
+
+@app.get("/")
+def home():
+    return {"status": "AeroClub AI radi"}
 
 
 @app.get("/chat")
@@ -30,11 +34,5 @@ def chat(message: str):
         print("AI ERROR:", str(e))
 
         return {
-            "odgovor": f"AeroClub AI (fallback mode): Trenutno koristim test režim. Pitanje: {message}"
+            "odgovor": f"AeroClub AI fallback: {message}"
         }
-
-
-@app.get("/admin")
-def admin():
-
-    return {"status": "AeroClub AI radi"}
