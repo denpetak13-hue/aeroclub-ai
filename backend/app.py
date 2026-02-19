@@ -15,5 +15,9 @@ def chat(message: str):
 
     except Exception as e:
 
-        # FREE MODE fallback
-        return {"odgovor": f"AeroClub AI (test mode): Primio sam pitanje → {message}"}
+        print("AI ERROR:", str(e))
+
+        # fallback koji UVEK radi
+        return {
+            "odgovor": f"AeroClub AI (fallback mode): Trenutno koristim test režim. Pitanje: {message}"
+        }
