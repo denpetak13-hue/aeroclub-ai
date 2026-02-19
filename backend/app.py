@@ -1,14 +1,8 @@
 from fastapi import FastAPI
-
-app = FastAPI()
-
-istorija = []
-
-@app.get("/chat")
-def chat(message: str):
-
 import os
 from openai import OpenAI
+
+app = FastAPI()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
