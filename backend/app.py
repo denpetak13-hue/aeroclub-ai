@@ -22,9 +22,15 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "..", "database", "chat.db")
 from fastapi.responses import FileResponse
 
+from fastapi.responses import FileResponse
+
 @app.get("/admin-panel")
 def admin_panel():
-    return FileResponse("../admin/index.html")
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    ADMIN_PATH = os.path.join(BASE_DIR, "..", "admin", "index.html")
+
+    return FileResponse(ADMIN_PATH)
 
 # --- HOME ---
 @app.get("/")
