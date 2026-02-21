@@ -12,9 +12,9 @@ load_dotenv(dotenv_path=ENV_PATH)
 
 app = FastAPI()
 
-api_key = os.environ.get("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 
-
+print("OPENAI KEY LOADED:", "YES" if api_key else "NO")
 
 client = OpenAI(api_key=api_key)
 # --- Database path ---
