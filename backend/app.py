@@ -18,7 +18,7 @@ ENV_PATH = BASE_DIR.parent / ".env"
 load_dotenv(dotenv_path=ENV_PATH)
 
 api_key = os.getenv("OPENAI_API_KEY")
-
+print("API KEY START:", repr(api_key[:15]))
 print("OPENAI KEY LOADED:", "YES" if api_key else "NO")
 
 client = OpenAI(api_key=api_key)
